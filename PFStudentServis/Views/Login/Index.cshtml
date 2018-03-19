@@ -1,0 +1,79 @@
+﻿@model PFStudentServis.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            background-color: antiquewhite;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+        #naslov-div 
+        {
+            background-color:antiquewhite;
+            position: absolute;
+            left: 20%;
+            top: 20%;
+        }
+        .field-validation-error
+        {
+color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="naslov-div">
+        <h1> WEB SERVIS STUDENATA PRAVNOG FAKULTETA </h1>
+    </div>
+    <div id="login-div">
+        @using (Html.BeginForm("Autorizacija", "Login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Unesite vaše podatke</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.BrojIndeksa)</td>
+                    <td>@Html.EditorFor(model => model.BrojIndeksa)</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model=>model.BrojIndeksa)</td>
+                    </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.JMBG)</td>
+                    <td>@Html.EditorFor(model => model.JMBG)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.JMBG)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error">@Html.DisplayFor(model=>model.LoginErrorMessage)</label>
+                    </td>
+                    <td>
+                        <input type="submit" name="name" value="Uloguj se" />
+                        <input type="reset" name="name" value="Obriši" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
