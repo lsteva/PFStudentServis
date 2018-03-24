@@ -6,19 +6,62 @@
         Response.Redirect("~/Login/Index");
     }
 }
- <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Login</title>
+
+    @Styles.Render("~/css/bootstrap.min.css")
+    @Styles.Render("~/Content/css")
+
+
+    <style>
+        #login-div {
+            position: absolute;
+            background-color: antiquewhite;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        #naslov-div {
+            background-color: antiquewhite;
+            position: absolute;
+            left: 20%;
+            top: 20%;
+        }
+
+        .field-validation-error {
+            color: crimson;
+        }
+
+        img.resize {
+            width: 30%; /* you can use % */
+            height: auto;
+        }
+
+       
+    </style>
 </head>
 <body>
-    <div> 
-     @{string ime = Session["BrojIndeksa"].ToString(); }
-     @{string prezime = Session["BrojIndeksa1"].ToString(); }
+    <div>
+        @{string ime = Session["BrojIndeksa"].ToString(); }
+        @{string prezime = Session["BrojIndeksa1"].ToString(); }
         <h1>Korisnička stranica servisa za prijavu ispita</h1>
-        <h3>Dobro dosli @ime  @prezime</h3>  
-        <a href="@Url.Action("Logout","Login")">Odjava</a>    </div>
+        <h3>Dobro dosli @ime  @prezime</h3>
+
+
+        <div>
+            @Html.ActionLink("Lista studenata", "Index", "Student")<br />
+            @Html.ActionLink("Lista nastavnika", "Index", "Nastavnik")
+            @Html.ActionLink("Lista predmeta", "Index", "Predmet")
+            @Html.ActionLink("Lista termina", "Index", "Termin")
+        </div>
+        <a href="@Url.Action("Logout","Login")">Odjava</a>
+    </div>
 </body>
 </html>

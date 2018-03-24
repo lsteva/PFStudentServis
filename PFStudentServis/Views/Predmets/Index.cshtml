@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PFStudentServis.Models.Predmet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OznakaPredmeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NazivPredmeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrESPBbodova)
+        </th>
+            @Html.DropDownList("Predmeti", "Oznaci predmet");
+)        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OznakaPredmeta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazivPredmeta)
+        </td>
+
+        
+
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.BrESPBbodova)
+        </td>
+
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.OznakaPredmeta }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OznakaPredmeta }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OznakaPredmeta })
+        </td>
+    </tr>
+}
+
+</table>

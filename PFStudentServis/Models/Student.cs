@@ -11,26 +11,15 @@ namespace PFStudentServis.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Student
     {
         public int UserID { get; set; }
-
         public string Ime { get; set; }
         public string Prezime { get; set; }
-
-        [DisplayName("Broj indeksa")]
-        [Required(ErrorMessage = "Ovo polje je obavezno")]
         public string BrojIndeksa { get; set; }
-
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Ovo polje je obavezno")]
         public string JMBG { get; set; }
         public System.DateTime DatumRodjenja { get; set; }
-
-        public string LoginErrorMessage { get; set; }
-       
+        public string LoginErrorMessage { get; internal set; }
     }
 }
