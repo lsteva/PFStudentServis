@@ -62,7 +62,7 @@
                     <div class="row">
                         <form class="form-horizontal">
                             <div class="form-group col-md-6">
-                                @Html.LabelFor(model => model.BrojIndeksa, new { @class = "control-label" })
+                                @Html.LabelFor(model => model.BrojIndeksa, "Broj indeksa", new { @class = "control-label" })
                             </div>
                             <div class="col-md-10">
 
@@ -70,23 +70,18 @@
                                 @Html.ValidationMessageFor(model => model.BrojIndeksa, "", new { @class = "text-danger" })
                             </div>
 
-
+                            <br />
 
 
                             <div class="form-group col-lg-6">
-                                @Html.LabelFor(model => model.JMBG, new { @class = "control-label" })
+                                @Html.LabelFor(model => model.JMBG, "JMBG", new { @class = "control-label" })
                             </div>
                             <div class="col-md-10">
                                 @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control form-control-lg" })
                                 @Html.ValidationMessageFor(model => model.JMBG, "", new { @class = "text-danger" })
 
 
-                                <div>
-                                    @Html.ActionLink("Lista studenata", "Index", "Students")<br />
-                                    @Html.ActionLink("Lista nastavnika", "Index", "Nastavniks")<br />
-                                    @Html.ActionLink("Lista predmeta", "Index", "Predmets")<br />
-                                    @Html.ActionLink("Lista termina", "Index", "Termins")<br />
-                                </div>
+
 
 
                                 <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
@@ -113,11 +108,11 @@
                     <iframe src="http://servisi.pf.uns.ac.rs/SSluzba/Novosti.jsp" frameborder="0"></iframe>
                 </div>*@
 
-                    <iframe height="1450" width="500" frameborder="0"
+                    <iframe height="1000" width="500" frameborder="0"
                             scrolling="no" style="padding-top: 0px; float: left;" target="_blank" src="http://servisi.pf.uns.ac.rs/SSluzba/Novosti.jsp"></iframe>
                 </div>
             </div>
-
+        </div>
             <script src="~/Scripts/jquery-1.10.2.js"></script>
             <script src="~/Scripts/jquery.validate.min.js"></script>
             <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,40 +1,107 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>LoupeWMS</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <img src="image/logo5.png" class="img-fluid" alt="Responsive image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
-    </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+
+
+
+
+
+                <li>
+                    <a href="@Url.Action("Index","Home")">
+                        <span class="glyphicon glyphicon-list-alt"></span>  Ispiti
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Index","licniPodaci")">
+                        <span class="glyphicon glyphicon-user"></span>  Lični podaci
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Index","skolarineIUplate")">
+                        <span class="glyphicon glyphicon-education"></span>  Školarine i uplate
+                    </a>
+                </li>
+
+               
+                <li>
+                    <a href="@Url.Action("Index","pomoc")">
+                        <span class="glyphicon glyphicon-question-sign"></span>  Pomoć
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Logout","Login")">
+                        @*<a href="login.html">*@
+                        <span class="glyphicon glyphicon-share"></span>  Kraj rada
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
 
     <div class="container body-content">
+
+
+
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - WebServis Pravnog fakulteta</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/js/jquery-3.2.1.min.js")
+    @Scripts.Render("~/js/bootstrap.min.js")*@
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <div id="body">
+        @RenderSection("featured", required: false)
+       
+    </div>
+
+
+
+    @*@RenderSection("scripts", required: false)*@
 </body>
 </html>
+
+
+

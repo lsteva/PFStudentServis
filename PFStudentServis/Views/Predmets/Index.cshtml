@@ -20,8 +20,8 @@
         <th>
             @Html.DisplayNameFor(model => model.BrESPBbodova)
         </th>
-            @Html.DropDownList("Predmeti", "Oznaci predmet");
-)        <th></th>
+            @Html.DropDownList("Predmeti", "Oznaci predmet")
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -32,18 +32,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.NazivPredmeta)
         </td>
-
-        
-
-
-
-
         <td>
             @Html.DisplayFor(modelItem => item.BrESPBbodova)
         </td>
-
-
-
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.OznakaPredmeta }) |
             @Html.ActionLink("Details", "Details", new { id = item.OznakaPredmeta }) |

@@ -3,9 +3,20 @@
 @{
     ViewBag.Title = "Index";
 }
+<!DOCTYPE html>
 
+<html>
 <h2>Index</h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Login</title>
 
+    @Styles.Render("~/css/bootstrap.min.css")
+    @Styles.Render("~/Content/css")
+</head>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -14,14 +25,19 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Termin1 }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Termin1 }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Termin1 })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Termin1 }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Termin1 }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Termin1 })
+            </td>
+        </tr>
+    }
 
 </table>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</html>

@@ -19,6 +19,7 @@ namespace PFStudentServis.Controllers
         {
             PFServisEntities db = new PFServisEntities();
             ViewBag.Predmeti = new SelectList(db.Predmets, "OznakaPredmeta", "NazivPredmeta");
+
             return View(db.Predmets.ToList());
         }
 

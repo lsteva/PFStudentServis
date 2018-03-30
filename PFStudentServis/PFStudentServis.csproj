@@ -166,9 +166,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ispitiController.cs" />
+    <Compile Include="Controllers\licniPodaciController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NastavniksController.cs" />
+    <Compile Include="Controllers\pomocController.cs" />
     <Compile Include="Controllers\PredmetsController.cs" />
+    <Compile Include="Controllers\skolarineIUplateController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TerminsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +242,10 @@
     <Content Include="Views\Termins\Details.cshtml" />
     <Content Include="Views\Termins\Edit.cshtml" />
     <Content Include="Views\Termins\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\pomoc\Index.cshtml" />
+    <Content Include="Views\licniPodaci\Index.cshtml" />
+    <Content Include="Views\skolarineIUplate\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -247,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ispiti\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

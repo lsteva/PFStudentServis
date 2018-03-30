@@ -1,11 +1,10 @@
-﻿
-@{
+﻿@*@{
     Layout = null;
     if (Session["brojIndeksa"] == null)
     {
         Response.Redirect("~/Login/Index");
     }
-}
+}*@
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,50 +17,136 @@
     @Styles.Render("~/Content/css")
 
 
-    <style>
-        #login-div {
-            position: absolute;
-            background-color: antiquewhite;
-            left: 40%;
-            top: 40%;
-            border: 1px solid #ccc;
-            padding: 10px 10px;
-        }
-
-        #naslov-div {
-            background-color: antiquewhite;
-            position: absolute;
-            left: 20%;
-            top: 20%;
-        }
-
-        .field-validation-error {
-            color: crimson;
-        }
-
-        img.resize {
-            width: 30%; /* you can use % */
-            height: auto;
-        }
-
-       
-    </style>
+    
 </head>
 <body>
-    <div>
-        @{string ime = Session["BrojIndeksa"].ToString(); }
-        @{string prezime = Session["BrojIndeksa1"].ToString(); }
-        <h1>Korisnička stranica servisa za prijavu ispita</h1>
-        <h3>Dobro dosli @ime  @prezime</h3>
+    <div class="container">
+        <form>
+            <div class="panel panel-default col-md-12">
+                <div class="panel-body">
 
 
-        <div>
-            @Html.ActionLink("Lista studenata", "Index", "Student")<br />
-            @Html.ActionLink("Lista nastavnika", "Index", "Nastavnik")
-            @Html.ActionLink("Lista predmeta", "Index", "Predmet")
-            @Html.ActionLink("Lista termina", "Index", "Termin")
-        </div>
-        <a href="@Url.Action("Logout","Login")">Odjava</a>
+                    <div>
+                        @{string ime = Session["BrojIndeksa"].ToString(); }
+                        @{string prezime = Session["BrojIndeksa1"].ToString(); }
+
+                        <h3>Dobro došli @ime  @prezime</h3>
+                        <h3 class="bg-info text-center">Prijava ispita</h3>
+                        @*@Html.DropDownList("Predmeti", "Oznaci predmet")*@
+
+
+                        <!-- Termin polaganja -->
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="Termin">Termin polaganja:</label>
+                                <select id="Termin" name="Termin" class="form-control">
+                                    <option value="1"> 9. april</option>
+                                    <option value="2">10. april</option>
+                                    <option value="3">11. april</option>
+                                    <option value="4">12. april</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Naziv predmeta -->
+
+                            <div class="col-md-6">
+                                <label for="nazivPredmeta">Naziv predmeta:</label>
+                                <select id="nazivPredmeta" name="nazivPredmeta" class="form-control">
+                                    <option value="">Rimsko pravo</option>
+                                    <option value="">Ustavno pravo</option>
+                                    <option value="">Nasledno pravo</option>
+                                </select>
+                            </div>
+
+
+
+                            <!-- Ispitivač -->
+
+                            <div class="col-md-4">
+                                <label for="Ispitivac">Ispitivač:</label>
+                                <select id="Ispitivac" name="Ispitivac" class="form-control">
+                                    <option value="">Jelena Vidić Trninić</option>
+                                    <option value="">Gordana Kovaček Stanić</option>
+                                    <option value="">Nataša Deretić</option>
+                                    <option value="">Svetozar Čiplić</option>
+                                    <option value="">Slobodan Orlović</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- You can also position the row if need be. -->
+                            <div class="col-md-12 col-lg-12">
+                                <!-- set width of column I wanted mine to stretch most of the screen-->
+                                <hr style="min-width:85%; background-color:rgba(176, 212, 233, 0.623); height:1px;" />
+                            </div>
+                        </div>
+
+
+                        <!-- Dodaj/Obriši/Snimi/Pronađi -->
+                        <div class="form-group">
+
+                            <div class="col-md-12">
+                                <button id="promeni" name="promeni" class="btn btn-primary">
+                                    Promeni
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                                <button id="snimi" name="snimi" class="btn btn-success">
+                                    Prijavi
+                                    <span class="glyphicon glyphicon-floppy-save"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br>
+
+        <h3 class="bg-info text-center">Prijavljeni ispiti</h3>
+
+        <table class="table table-condensed table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Redni broj</th>
+                    <th>Naziv ispita</th>
+                    <th>ESPB</th>
+                    <th>Nastavnik</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rimsko pravo</td>
+                    <td>10</td>
+                    <td>Nataša Deretić</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ustavno pravo</td>
+                    <td>10</td>
+                    <td>Slobodan Orlović</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nasledno pravo</td>
+                    <td> 6</td>
+                    <td>Jelena Vidić Trninić</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
+
+    @*<a href="@Url.Action("Logout","Login")">Odjava</a>*@
+    
 </body>
 </html>
